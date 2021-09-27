@@ -1,0 +1,52 @@
+[Marshall Rule]
+	{hashmap | dict}
+	{array | tuple, list}
+	{set | set, frozenset}
+	{string | basestring, str, unicode}
+	{number | int, long, float}
+	{boolean | bool(not number)}
+	{undefined | noneType}
+	
+[Search Notation]
+	XPath.
+
+[Validation Rule]
+	hashmap::
+		type: "hashmap"
+		need: True or False
+		nullable: True or False
+		memberKey: ("foo1", "foo2",...)
+		generic: "hashmap" or "array" or "set" or "string" or "number" or "boolean" or "undefined" or None
+	array::
+		type: "array"
+		need: True or False
+		min: ((unsigned integer of length. ex.) 0, 5L)) or None
+		max: ((unsigned integer of length except zero. ex.) 1, 10L)) or None
+		generic: "hashmap" or "array" or "set" or "string" or "number" or "boolean" or "undefined" or None
+	set::
+		type: "set"
+		need: True or False
+		min: ((unsigned integer. ex.) 0, 5L))
+		max: ((unsigned integer except zero. ex.) 1, 10L))
+		generic: "hashmap" or "array" or "set" or "string" or "number" or "boolean" or "undefined" or None
+	string::
+		type: "string"
+		need: True or False
+		nullable: True or False(False rejects null string)
+		candidates: ("foo1", "foo2", "foo3") or None
+		min: ((unsigned integer of length. ex.) 0, 5L)) or None
+		max: ((unsigned integer of length except zero. ex.) 1, 10L)) or None
+		restrict: ((Regular expression along with 'match' method for capable characters)) or None
+	number::
+		type: "number"
+		need: True or False
+		nullable: True or False(False rejects null string)
+		candidates: ("foo1", "foo2", "foo3") or None
+		min: ((signed number. ex.) 0, 5L, -11.00)) or None
+		max: ((signed number greater than 'min'. ex.) 1, 10.5, -3)) or None
+	boolean::
+		type: "boolean"
+		need: True or False
+		nullable: True or False(False rejects null string)
+	undefined::
+		type: "undefined"

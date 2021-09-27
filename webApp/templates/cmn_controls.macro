@@ -1,0 +1,395 @@
+{# macro for eye-catches. #}
+
+{#
+  ログインボタンの生成
+  login(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro login(hdl_click="") -%}
+<button class="btn pull-right" alt="ログイン" style="margin-bottom: 0.5em;" type="submit"
+	onclick="{{ hdl_click }}" id="login_btn"><span class="glyphicon glyphicon-play-circle text-success"></span>&nbsp;&nbsp;ログイン</button>
+{% endmacro %}
+
+{#
+  パスワード再設定ボタンの生成
+  reset_pwd(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro reset_pwd(hdl_click="") -%}
+<button class="btn pull-right" alt="パスワード再設定" style="width: 150px; margin-bottom: 0.5em;" type="button"
+	onclick="{{ hdl_click }}" id="reset_pwd_btn"><span class="glyphicon glyphicon-question-sign text-danger"></span>&nbsp;&nbsp;パスワード再設定</button>
+{% endmacro %}
+
+{#
+  ログアウトボタンの生成
+  logout(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro logout(hdl_click="") -%}
+<span class="btn btn_invert" onclick="{{ hdl_click }}"><span class="glyphicon glyphicon-lock"></span>&nbsp;ログアウト</span>
+{% endmacro %}
+
+{#
+  設定ボタンの生成：管理者設定ボタンと統合
+  setting_generic(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro setting_generic(hdl_click="") -%}
+<span class="btn btn_invert" onclick="{{ hdl_click }}"><span class="glyphicon glyphicon-cog"></span>&nbsp;設定</span>
+{% endmacro %}
+
+{#
+  管理者設定ボタンの生成
+  setting_admin(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro setting_admin(hdl_click="") -%}
+<span class="btn" onclick="{{ hdl_click }}"><span class="glyphicon glyphicon-wrench"></span>&nbsp;管理者設定</span>
+{% endmacro %}
+
+{#
+  お問合せボタンの生成
+  inquire(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro inquire(hdl_click="") -%}
+<span class="btn btn_invert" onclick="{{ hdl_click }}"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;お問合せ</span>
+{% endmacro %}
+
+{#
+  新規作成ボタンの生成
+  new_obj(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro new_obj(hdl_click="") -%}
+<span class="btn" onclick="{{ hdl_click }}">新規登録&nbsp;<span class="glyphicon glyphicon-plus-sign"></span></span>
+{% endmacro %}
+
+{#
+  追加ボタンの生成
+  add_obj(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro add_obj(hdl_click="") -%}
+<span class="btn" onclick="{{ hdl_click }}">追加&nbsp;<span class="glyphicon glyphicon-plus-sign"></span></span>
+{% endmacro %}
+
+{#
+  追加ボタン2の生成
+  add_obj2(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro add_obj2(hdl_click="") -%}
+<span class="btn" style="width: 30px" onclick="{{ hdl_click }}"><span class="glyphicon glyphicon-plus"></span></span>
+{% endmacro %}
+
+{#
+  アサインボタンの生成
+  assign(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro assign(hdl_click="", help_text="") -%}
+{% if help_text -%}
+<span class="btn popover-dismiss"
+	data-toggle="popover"
+	{#data-placement="bottom"#}
+	data-content="{{ help_text }}"
+	onmouseover="$(this).popover('show');"
+	onmouseout="$(this).popover('hide');"
+	onclick="{{ hdl_click }}">アサイン&nbsp;<span class="glyphicon glyphicon-ok"></span></span>
+{% else -%}
+<span class="btn" onclick="{{ hdl_click }}">アサイン&nbsp;<span class="glyphicon glyphicon-ok"></span></span>
+{% endif %}
+{% endmacro %}
+
+{#
+  実績更新ボタンの生成
+  update_operation(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro update_operation(hdl_click="") -%}
+<span class="btn-operation btn-lg pseudo-link-cursor" onclick="{{ hdl_click }}"
+  data-toggle="popover"
+  data-placement="top"
+  data-html="true"
+  data-content="<span style='font-size: small;color: black'>下表で入力・変更した情報を適用します。<br/>その後、ページが自動更新されます。</span>"
+  onmouseover="$(this).popover('show');"
+  onmouseout="$(this).popover('hide');">実績更新&nbsp;<span class="glyphicon glyphicon-edit"></span></span>
+{% endmacro %}
+
+{#
+  見積書発行ボタンの生成
+  create_estimate_sheet(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro create_estimate_sheet(hdl_click="") -%}
+<span class="btn" onclick="{{ hdl_click }}">見積書発行&nbsp;<span class="glyphicon glyphicon-file"></span></span>
+{% endmacro %}
+
+{#
+  注文書発行ボタンの生成
+  create_order_sheet(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro create_order_sheet(hdl_click="") -%}
+<span class="btn" style="width:120px;" onclick="{{ hdl_click }}">請求先注文書発行&nbsp;<span class="glyphicon glyphicon-file"></span></span>
+{% endmacro %}
+
+{#
+  注文書発行ボタンの生成
+  create_purchase_sheet(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro create_purchase_sheet(hdl_click="") -%}
+<span class="btn" onclick="{{ hdl_click }}">注文書発行&nbsp;<span class="glyphicon glyphicon-file"></span></span>
+{% endmacro %}
+
+{#
+  請求書発行ボタンの生成
+  create_invoice_sheet(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro create_invoice_sheet(hdl_click="") -%}
+<span class="btn" onclick="{{ hdl_click }}">請求書発行&nbsp;<span class="glyphicon glyphicon-file"></span></span>
+{% endmacro %}
+
+{#
+  一括メールボタンの生成
+  mail_all(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro mail_all(hdl_click="", help_text="") -%}
+{% if help_text -%}
+<span class="btn popover-dismiss"
+	data-toggle="popover"
+	{#data-placement="bottom"#}
+	data-content="{{ help_text }}"
+	onmouseover="$(this).popover('show');"
+	onmouseout="$(this).popover('hide');"
+	onclick="{{ hdl_click }}">一括メール&nbsp;<span class="glyphicon glyphicon-envelope"></span></span>
+{% else -%}
+<span class="btn" onclick="{{ hdl_click }}">一括メール&nbsp;<span class="glyphicon glyphicon-envelope"></span></span>
+{% endif %}
+{% endmacro %}
+
+{#
+  一括削除ボタンの生成
+  delete_checked(hdl_click="")
+  @args:
+    
+#}
+{% macro delete_checked(hdl_click) -%}
+<span class="btn" onclick="{{ hdl_click }}">一括削除&nbsp;<span class="glyphicon glyphicon-trash"></span></span>
+{% endmacro %}
+
+{#
+  検索ボタンの生成
+  search(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro search(hdl_click="") -%}
+{#<span class="btn" onclick="{{ hdl_click }}">検索&nbsp;<span class="glyphicon glyphicon-search"></span></span>#}
+<button type="submit" class="btn" onclick="{{ hdl_click }}">検索&nbsp;<span class="glyphicon glyphicon-search"></span></button>
+{% endmacro %}
+
+{#
+  詳細検索ボタンの生成
+  search_complex(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro search_complex(hdl_click="") -%}
+<span class="btn" onclick="{{ hdl_click }}">詳細検索&nbsp;<span class="glyphicon glyphicon-search"></span></span>
+{% endmacro %}
+
+{#
+  クリアボタンの生成
+  clear(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro clear(hdl_click="") -%}
+<span class="btn" onclick="{{ hdl_click }}">クリア&nbsp;<span class="glyphicon glyphicon-refresh"></span></span>
+{% endmacro %}
+
+{# !DEPLICATED!
+  表示確定ボタンの生成
+  pagenate_length(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro pagenate_length(hdl_click="") -%}
+<span class="input-group-addon btn" onclick="{{ hdl_click }}">表示確定&nbsp;<span class="glyphicon glyphicon-list-alt"></span></span>
+{% endmacro %}
+
+{#
+  グローバルナビボタンの生成
+  gnavi(label="デフォルト", hdl_click="", aside="")
+  @args:
+    label: label text for button.
+    href_symbol: string for hdlClickGnaviBtn() JavaScript function's parameter.
+#}
+{% macro gnavi(label="デフォルト", href_symbol="", aside="") -%}
+<button class="gnavi-btn{% if aside=="first" %} first{% elif aside=="last" %} last{% else %}{% endif %}" onclick="c4s.hdlClickGnaviBtn('{{ href_symbol }}');">{{ label }}</button>
+{% endmacro %}
+
+{#
+  リマインダの生成
+  logout(hdl_click="")
+  @args:
+    hdl_click : onclick handler definition (JavaScript string).
+#}
+{% macro remind(hdl_click="", help_text="") -%}
+{% if help_text -%}
+<span class="btn popover-dismiss"
+	data-toggle="popover"
+	{#data-placement="bottom"#}
+	data-content="{{ help_text }}"
+	onmouseover="$(this).popover('show');"
+	onmouseout="$(this).popover('hide');"
+	onclick="{{ hdl_click }}">リマインダ&nbsp;<span class="glyphicon glyphicon-play"></span></span>
+{% else -%}
+<span class="btn" onclick="{{ hdl_click }}">リマインダ&nbsp;<span class="glyphicon glyphicon-play"></span></span>
+{% endif -%}
+{% endmacro %}
+
+{#
+  ソート付き表見出し
+  th(query, label, field)
+  @args:
+    query: chain_env['argument'].data.
+    label: header label string.
+    field: data field for sorting.
+#}
+{% macro th(query, label, field) -%}
+{% set curr_dir = "DEFAULT" -%}
+{% set next_dir = "DEFAULT" -%}
+{% if query and query.sort_keys -%}
+	{% if field in query.sort_keys -%}
+		{% if query.sort_keys[field] == "+" -%}
+			{% set curr_dir = "ASC" -%}
+			{% set next_dir = "DESC" -%}
+		{% else -%}
+			{% set curr_dir = "DESC" -%}
+			{% set next_dir = "ASC" -%}
+		{% endif -%}
+	{% else -%}
+		{% set curr_dir = "DEFAULT" -%}
+		{% set next_dir = "DESC" -%}
+	{% endif -%}
+{% else -%}
+	{% set curr_dir = "DEFAULT" -%}
+	{% set next_dir = "DESC" -%}
+{% endif -%}
+
+{% if curr_dir == "DEFAULT" -%}
+	{% set glyph = "glyphicon glyphicon-minus" -%}
+{% elif curr_dir == "ASC" -%}
+	{% set glyph = "glyphicon glyphicon-chevron-up" -%}
+{% elif curr_dir == "DESC" -%}
+	{% set glyph = "glyphicon glyphicon-chevron-down" -%}
+{% endif -%}
+
+{% if next_dir == "DEFAULT" -%}
+<span class="pseudo-link" onclick="c4s.reloadWithOrder();">{{ label }}
+{% elif next_dir == "DESC" -%}
+<span class="pseudo-link" onclick="c4s.reloadWithOrder('{{ field }}', '-');">{{ label }}
+{% elif next_dir == "ASC" -%}
+<span class="pseudo-link" onclick="c4s.reloadWithOrder('{{ field }}', '+');">{{ label }}&nbsp;
+{% endif -%}
+&nbsp;<span class="{{ glyph }}"{% if curr_dir == "ASC" %} title="昇順"{% elif curr_dir == "DESC" %} title="降順"{% endif %}></span>{#<!-- curr_dir: {{ curr_dir }} / next_dir: {{ next_dir }} -->#}</span>
+{% endmacro -%}
+
+{#
+  ページネーション
+#}
+{% macro paging(query, env, items) -%}
+{% set current = query.pageNumber or 1 -%}
+{% if current > 1 -%}
+	{% set previous_active = True -%}
+{% else -%}
+	{% set previous_active = False -%}
+{% endif %}
+{% set row_min = env.limit.ROW_LENGTH * (current - 1) + 1 -%}
+{% if (env.limit.ROW_LENGTH * current) <= items|length -%}
+	{% set row_max = env.limit.ROW_LENGTH * current -%}
+{% else -%}
+	{% set row_max = items|length -%}
+{% endif -%}
+{% if items|length - row_max > 0 -%}
+	{% set next_active = True -%}
+{% else -%}
+	{% set next_active = False -%}
+{% endif -%}
+<ul class="pagination pagination-sm pull-right" style="margin: 0;">
+	<li{% if not previous_active %} class="disabled"{% else %} class="pseudo-link-cursor" onclick="c4s.jumpToPagination({{ current - 1 }});"{% endif %}><span>&laquo;</span></li>
+	<li class="active"><span>{{ items|length }}件中&nbsp;{{ row_min }}～{{ row_max }}件を表示</span></li>
+	<li{% if not next_active %} class="disabled"{% else %} class="pseudo-link-cursor" onclick="c4s.jumpToPagination({{ current + 1 }});"{% endif %}><span>&raquo;</span></li>
+</ul>
+{% endmacro -%}
+
+{#
+件数表示のみ
+#}
+{% macro count_view(items, max_count) -%}
+	{% set row_min = 1 -%}
+	{% set row_max = max_count -%}
+	{% if max_count <= items|length and max_count != -1 -%}
+        {% set row_max = max_count -%}
+    {% else -%}
+        {% set row_max = items|length -%}
+    {% endif -%}
+<ul class="pagination pagination-sm pull-right" style="margin: 0;">
+	<li class="active"><span>{{ items|length }}件中&nbsp;{{ row_min }}～{{ row_max }}件を表示</span></li>
+	</ul>
+{% endmacro -%}
+
+{#
+  ページネーション operation
+#}
+{% macro paging_operation(query, items) -%}
+{% set MAX_SIZE_OPERATION = 30 %}
+{% set current = query.pageNumber or 1 -%}
+{% if current > 1 -%}
+  {% set previous_active = True -%}
+{% else -%}
+  {% set previous_active = False -%}
+{% endif %}
+{% set row_min = MAX_SIZE_OPERATION * (current - 1) + 1 -%}
+{% if (MAX_SIZE_OPERATION * current) <= items -%}
+  {% set row_max = MAX_SIZE_OPERATION * current -%}
+{% else -%}
+  {% set row_max = items -%}
+{% endif -%}
+{% if items - row_max > 0 -%}
+  {% set next_active = True -%}
+{% else -%}
+  {% set next_active = False -%}
+{% endif -%}
+<ul class="pagination pagination-sm pull-right" style="margin: 0;">
+  <li{% if not previous_active %} class="disabled"{% else %} class="pseudo-link-cursor" onclick="c4s.jumpToPagination({{ current - 1 }});"{% endif %}><span>&laquo;</span></li>
+  <li class="active"><span>{{ items }}件中&nbsp;{{ row_min }}～{{ row_max }}件を表示</span></li>
+  <li{% if not next_active %} class="disabled"{% else %} class="pseudo-link-cursor" onclick="c4s.jumpToPagination({{ current + 1 }});"{% endif %}><span>&raquo;</span></li>
+</ul>
+{% endmacro -%}
+{% macro search_operation(hdl_click="") -%}
+{#<span class="btn" onclick="{{ hdl_click }}">検索&nbsp;<span class="glyphicon glyphicon-search"></span></span>#}
+<button type="button" class="btn" onclick="{{ hdl_click }}">検索&nbsp;<span class="glyphicon glyphicon-search"></span></button>
+{% endmacro %}

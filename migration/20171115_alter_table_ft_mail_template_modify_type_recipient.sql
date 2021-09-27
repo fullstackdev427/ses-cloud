@@ -1,0 +1,1 @@
+alter table ft_mail_templates modify type_recipient enum ('取引先担当者（既定）','取引先担当者','技術者（既定）','技術者','リマインダー','マッチング') not null;

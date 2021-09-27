@@ -1,0 +1,1 @@
+CREATE TABLE ft_mails_time ( id BIGINT(19) UNSIGNED AUTO_INCREMENT PRIMARY KEY, mail_req_id BIGINT(19) UNSIGNED, send_time TIMESTAMP NOT NULL, user_profile LONGTEXT, reply_to TEXT, x_gwcustom_reply VARCHAR(10));

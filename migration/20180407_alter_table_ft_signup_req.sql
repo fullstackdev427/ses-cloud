@@ -1,0 +1,1 @@
+ALTER TABLE ft_signup_req MODIFY type_signup enum('ADD_COMPANY','ADD_USER','RESET_PWD') not null;

@@ -1,0 +1,1 @@
+ALTER TABLE mt_projects ADD rank_id int(2) unsigned DEFAULT 0;

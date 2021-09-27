@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+/* IE 9 only */
+span.btn, #login_btn, form button.btn {
+	filter: none;
+}
+
+span.btn_invert:hover {
+	filter: none;
+}
+
+.gnavi-btn, .gnavi-btn:hover {
+	filter: none;
+}
+
+#nav li.current, #nav li.current:hover {
+	filter: none;
+}
+
+#nav li, #nav li:hover {
+	filter: none;
+}
+
+@media only screen and ( max-width: 40em ) {
+	#nav > a {
+		filter: none;
+	}
+}

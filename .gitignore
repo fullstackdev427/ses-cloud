@@ -1,0 +1,7 @@
+*.pyc
+/.idea
+.project
+.pydevproject
+/.settings
+webApp/download/*.pdf
+webApp/preference.py

@@ -1,0 +1,1 @@
+alter table ft_logs modify app_switch varchar(128);
